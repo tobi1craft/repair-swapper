@@ -7,11 +7,14 @@
 	"authors": [
 		"@tobi1craft"
 	],
+	"contributors": [
+		"@Suedfruchtchen"
+	],
 	"contact": {
 		"homepage": "https://tobi1craft.de/repair-swapper",
 		"sources": "https://github.com/tobi1craft/repair-swapper"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/repair-swapper/icon.png",
 	"environment": "client",
 	"entrypoints": {
