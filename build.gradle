@@ -109,9 +109,9 @@ tasks.register('updatePublishFile') {
 
 	doLast {
 		def cfg = yaml.load(new File(configurationYAML).newInputStream())
-		updateGlobalProperties(cfg, 'VERSION', mod_version + '-' + minecraft_version)
+		updateGlobalProperties(cfg, 'VERSION', mod_version + '+' + minecraft_version)
 		updateGlobalProperties(cfg, 'MINECRAFT_VERSION', minecraft_version)
-		updateGlobalProperties(cfg, 'RELEASE_NAME', 'repair-swapper v' + mod_version + ' for Minecraft ' + minecraft_version)
+		updateGlobalProperties(cfg, 'RELEASE_NAME', 'RS v' + mod_version + ' for Minecraft ' + minecraft_version)
 
 		FileWriter writer = new FileWriter(configurationYAML)
 		yaml.dump(cfg, writer)
