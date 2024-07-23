@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "de.tobi1craft.repairswapper.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExperienceOrbMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

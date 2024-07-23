@@ -1,0 +1,16 @@
+{
+  "repair-swapper.midnightconfig.title": "Repair Swapper Config",
+  "repair-swapper.midnightconfig.auto": "Automatically activate repair swapper",
+  "repair-swapper.midnightconfig.auto.tooltip": "Activating on XP-Pickup for time defined in the reset delay option",
+  "repair-swapper.midnightconfig.hand": "Hand to swap damaged item to",
+  "repair-swapper.midnightconfig.hand.tooltip": "Offhand is mostly fine.",
+  "repair-swapper.midnightconfig.enum.Hand.MAINHAND": "Mainhand",
+  "repair-swapper.midnightconfig.enum.Hand.OFFHAND": "Offhand",
+  "repair-swapper.midnightconfig.delayToReset": "Reset delay (in ticks)",
+  "repair-swapper.midnightconfig.delayToReset.tooltip": "Delay after which to disable repair swapper. \nSet to 0 for no automatic disabling.",
+
+  "category.repair-swapper.key": "Repair Swapper",
+  "key.repair-swapper.toggle": "Toggle Repair Swapper",
+  "hud.repair-swapper.enabled": "Repair Swapper enabled",
+  "hud.repair-swapper.disabled": "Repair Swapper disabled"
+}
