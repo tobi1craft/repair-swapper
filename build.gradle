@@ -1,3 +1,15 @@
+import org.yaml.snakeyaml.DumperOptions
+import org.yaml.snakeyaml.Yaml
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath group: 'org.yaml', name: 'snakeyaml', version: '1.27'
+	}
+}
+
 plugins {
 	id 'fabric-loom' version '1.7-SNAPSHOT'
 	id 'maven-publish'
@@ -75,5 +87,34 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+tasks.register('updatePublishFile') {
+	def configurationYAML = ".github/workflows/publish.yml"
+
+	inputs.files configurationYAML
+	outputs.files configurationYAML
+
+	DumperOptions options = new DumperOptions()
+	options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK)
+	options.setIndent(2)
+	options.setAllowReadOnlyProperties(true)
+	options.setPrettyFlow(true)
+
+	Yaml yaml = new Yaml(options)
+
+	def updateGlobalProperties = { cfg, name, version -> cfg.env.put(name, version)
+	}
+
+	doLast {
+		def cfg = yaml.load(new File(configurationYAML).newInputStream())
+		updateGlobalProperties(cfg, 'VERSION', mod_version + '-' + minecraft_version)
+		updateGlobalProperties(cfg, 'MINECRAFT_VERSION', minecraft_version)
+		updateGlobalProperties(cfg, 'RELEASE_NAME', 'repair-swapper v' + mod_version + ' for Minecraft ' + minecraft_version)
+
+		FileWriter writer = new FileWriter(configurationYAML)
+		yaml.dump(cfg, writer)
+
 	}
 }
