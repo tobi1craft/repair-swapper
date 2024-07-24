@@ -37,7 +37,7 @@ jobs:
         modrinth-id: Bwu8SwOg
         modrinth-token: ${{env.MODRINTH_TOKEN}}
         modrinth-dependencies: |
-          MidnightLib(required)
+          Fabric API(required)
         github-tag: v${{env.VERSION}}
         github-token: ${{env.GITHUB_TOKEN}}
         name: ${{env.RELEASE_NAME}}

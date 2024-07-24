@@ -12,7 +12,8 @@
 	],
 	"contact": {
 		"homepage": "https://tobi1craft.de/repair-swapper",
-		"sources": "https://github.com/tobi1craft/repair-swapper"
+		"sources": "https://github.com/tobi1craft/repair-swapper",
+		"issues": "https://github.com/tobi1craft/repair-swapper/issues",
 	},
 	"license": "MIT",
 	"icon": "assets/repair-swapper/icon.png",
@@ -30,8 +31,5 @@
 		"minecraft": "~1.21",
 		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
