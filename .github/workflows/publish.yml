@@ -5,8 +5,8 @@ name: Publish on Github & Modrinth
 env:
   MINECRAFT_VERSION: '1.21'
   JAVA_VERSION: 21
-  VERSION: 1.0.0-1.21
-  RELEASE_NAME: repair-swapper v1.0.0 for Minecraft 1.21
+  VERSION: 1.0.1+1.21
+  RELEASE_NAME: RS v1.0.1 for Minecraft 1.21
   GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}
   MODRINTH_TOKEN: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
 permissions:
