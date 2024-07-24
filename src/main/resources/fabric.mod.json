@@ -13,7 +13,7 @@
 	"contact": {
 		"homepage": "https://tobi1craft.de/repair-swapper",
 		"sources": "https://github.com/tobi1craft/repair-swapper",
-		"issues": "https://github.com/tobi1craft/repair-swapper/issues",
+		"issues": "https://github.com/tobi1craft/repair-swapper/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/repair-swapper/icon.png",
