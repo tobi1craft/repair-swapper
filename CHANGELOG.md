@@ -2,3 +2,4 @@
 - changed default config value of delayToReset
 - changed some actionbar notify behaviour
 - fixed hotbar slot not switching
+- changed auto mode for keep alive

@@ -1,7 +1,6 @@
 package de.tobi1craft.repairswapper.mixin;
 
 import de.tobi1craft.repairswapper.RepairSwapperClient;
-import de.tobi1craft.repairswapper.RepairSwapperConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -19,6 +18,6 @@ public class ExperienceOrbMixin {
         if (!(playerEntity instanceof ClientPlayerEntity)) {
             return;
         }
-        if (RepairSwapperConfig.auto) RepairSwapperClient.enable(MinecraftClient.getInstance(), true);
+        RepairSwapperClient.enable(MinecraftClient.getInstance(), true);
     }
 }

@@ -85,13 +85,13 @@ public class RepairSwapperClient implements ClientModInitializer {
     }
 
     public static void enable(MinecraftClient client, boolean autoTrigger) {
-        if (enabled) return;
+        tickCounter = 0;
+        if (enabled || (autoTrigger && !RepairSwapperConfig.auto)) return;
         if (client.player != null && getRepairableSlots(client.player).isEmpty()) {
             if (!autoTrigger)
                 client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.noRepairable"), false);
             return;
         }
-        tickCounter = 0;
         swappedSlot = -1;
         enabled = true;
         client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.enabled"), false);
