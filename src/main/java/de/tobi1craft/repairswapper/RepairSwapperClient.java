@@ -72,13 +72,8 @@ public class RepairSwapperClient implements ClientModInitializer {
 
     private static void tick(MinecraftClient client) {
         while (keyBinding.wasPressed()) {
-            if(enabled){
-                disable(client);
-                client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.disabled"), false);
-            } else {
-                enable();
-                client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.enabled"), false);
-            }
+            if (enabled) disable(client);
+            else enable(client);
         }
         if (enabled) {
             if (RepairSwapperConfig.delayToReset != 0) {
@@ -92,20 +87,20 @@ public class RepairSwapperClient implements ClientModInitializer {
         }
     }
 
-    public static void enable() {
+    public static void enable(MinecraftClient client) {
         if (enabled) return;
-        System.out.println("enable");
         tickCounter = 0;
         swappedSlot = -1;
         enabled = true;
+        client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.enabled"), false);
     }
 
     public static void disable(MinecraftClient client) {
-        System.out.println("disable");
         enabled = false;
         if (swappedSlot == -1) return;
         assert client.player != null;
         swapBack(client, client.player);
+        client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.disabled"), false);
     }
 
     @Unique
@@ -125,7 +120,6 @@ public class RepairSwapperClient implements ClientModInitializer {
     }
 
     private static void swapBack(MinecraftClient client, ClientPlayerEntity player) {
-        System.out.println("Swapping back");
         if (!player.getInventory().getStack(swappedSlot).isEmpty())
             Objects.requireNonNull(client.interactionManager).clickSlot(0, swappedSlot, 0, SlotActionType.PICKUP, player);
         Objects.requireNonNull(client.interactionManager).clickSlot(0, swappedSlotTo, 0, SlotActionType.PICKUP, player);
@@ -154,7 +148,7 @@ public class RepairSwapperClient implements ClientModInitializer {
     public void onInitializeClient() {
         LOGGER.info("Repair Swapper initializing");
         MidnightConfig.init("repair-swapper", RepairSwapperConfig.class);
-        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.repair-swapper.toggle", GLFW.GLFW_KEY_R, "category.repair-swapper.key"));
+        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.repair-swapper.toggle", GLFW.GLFW_KEY_R, "key.categories.repair-swapper"));
         ClientTickEvents.END_CLIENT_TICK.register(RepairSwapperClient::tick);
     }
 }

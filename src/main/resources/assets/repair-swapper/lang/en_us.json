@@ -9,7 +9,9 @@
   "repair-swapper.midnightconfig.delayToReset": "Reset delay (in ticks)",
   "repair-swapper.midnightconfig.delayToReset.tooltip": "Delay after which to disable repair swapper. \nSet to 0 for no automatic disabling.",
 
-  "category.repair-swapper.key": "Repair Swapper",
+
+
+  "key.categories.repair-swapper": "Repair Swapper",
   "key.repair-swapper.toggle": "Toggle Repair Swapper",
   "hud.repair-swapper.enabled": "Repair Swapper enabled",
   "hud.repair-swapper.disabled": "Repair Swapper disabled"
