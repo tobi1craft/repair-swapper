@@ -3,3 +3,4 @@
 - changed some actionbar notify behaviour
 - fixed hotbar slot not switching
 - changed auto mode for keep alive
+- fixed repeated swapping in Mainhand mode

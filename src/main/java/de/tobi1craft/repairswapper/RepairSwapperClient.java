@@ -46,7 +46,7 @@ public class RepairSwapperClient implements ClientModInitializer {
 
         int slot = getLeastDurabilitySlot(player);
 
-        if (!needsSwap(slot)) return;
+        if (!needsSwap(player, slot)) return;
 
         if (swappedSlot != -1) swapBack(client, player);
 
@@ -129,8 +129,8 @@ public class RepairSwapperClient implements ClientModInitializer {
     }
 
     @Unique
-    private static boolean needsSwap(int slot) {
-        return slot != -1 && slot <= 35;
+    private static boolean needsSwap(ClientPlayerEntity player, int slot) {
+        return slot != -1 && slot <= 35 && player.getInventory().selectedSlot != slot;
     }
 
     @Unique
