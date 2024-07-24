@@ -40,7 +40,6 @@ public class RepairSwapperClient implements ClientModInitializer {
     private static int tickCounter = 0;
 
     public static void doSwapping() {
-
         MinecraftClient client = MinecraftClient.getInstance();
         ClientPlayerEntity player = client.player;
         if (player == null) return;
@@ -54,16 +53,14 @@ public class RepairSwapperClient implements ClientModInitializer {
         swappedSlot = slot;
         swappedSlotTo = 45;
 
-        if (RepairSwapperConfig.hand == RepairSwapperConfig.Hand.MAINHAND) {
-            if (swappedSlot < 9) {
-                player.getInventory().selectedSlot = swappedSlot;
-                swappedSlot = -1;
-                return;
-            } else {
-                swappedSlotTo = player.getInventory().selectedSlot + 36;
-            }
+        if (swappedSlot < 9) {
+            player.getInventory().selectedSlot = swappedSlot;
+            swappedSlot = -1;
+            return;
         }
-        System.out.println("Swapping");
+        if (RepairSwapperConfig.hand == RepairSwapperConfig.Hand.MAINHAND)
+            swappedSlotTo = player.getInventory().selectedSlot + 36;
+
         if (!player.getInventory().getStack(swappedSlotTo).isEmpty())
             Objects.requireNonNull(client.interactionManager).clickSlot(0, swappedSlotTo, 0, SlotActionType.PICKUP, player);
         Objects.requireNonNull(client.interactionManager).clickSlot(0, swappedSlot, 0, SlotActionType.PICKUP, player);
@@ -73,7 +70,7 @@ public class RepairSwapperClient implements ClientModInitializer {
     private static void tick(MinecraftClient client) {
         while (keyBinding.wasPressed()) {
             if (enabled) disable(client);
-            else enable(client);
+            else enable(client, false);
         }
         if (enabled) {
             if (RepairSwapperConfig.delayToReset != 0) {
@@ -87,8 +84,13 @@ public class RepairSwapperClient implements ClientModInitializer {
         }
     }
 
-    public static void enable(MinecraftClient client) {
+    public static void enable(MinecraftClient client, boolean autoTrigger) {
         if (enabled) return;
+        if (client.player != null && getRepairableSlots(client.player).isEmpty()) {
+            if (!autoTrigger)
+                client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.noRepairable"), false);
+            return;
+        }
         tickCounter = 0;
         swappedSlot = -1;
         enabled = true;
@@ -96,11 +98,11 @@ public class RepairSwapperClient implements ClientModInitializer {
     }
 
     public static void disable(MinecraftClient client) {
+        client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.disabled"), false);
         enabled = false;
         if (swappedSlot == -1) return;
         assert client.player != null;
         swapBack(client, client.player);
-        client.inGameHud.setOverlayMessage(Text.translatable("hud.repair-swapper.disabled"), false);
     }
 
     @Unique

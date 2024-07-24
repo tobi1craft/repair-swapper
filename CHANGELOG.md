@@ -1,3 +1,4 @@
 - updated and fixed default translation
 - changed default config value of delayToReset
 - changed some actionbar notify behaviour
+- fixed hotbar slot not switching

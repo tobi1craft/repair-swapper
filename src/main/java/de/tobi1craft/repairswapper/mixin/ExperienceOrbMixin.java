@@ -19,6 +19,6 @@ public class ExperienceOrbMixin {
         if (!(playerEntity instanceof ClientPlayerEntity)) {
             return;
         }
-        if (RepairSwapperConfig.auto) RepairSwapperClient.enable(MinecraftClient.getInstance());
+        if (RepairSwapperConfig.auto) RepairSwapperClient.enable(MinecraftClient.getInstance(), true);
     }
 }

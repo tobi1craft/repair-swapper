@@ -14,5 +14,6 @@
   "key.categories.repair-swapper": "Repair Swapper",
   "key.repair-swapper.toggle": "Toggle Repair Swapper",
   "hud.repair-swapper.enabled": "Repair Swapper enabled",
-  "hud.repair-swapper.disabled": "Repair Swapper disabled"
+  "hud.repair-swapper.disabled": "Repair Swapper disabled",
+  "hud.repair-swapper.noRepairable": "Repair Swapper not enabled. No repairable items!"
 }
