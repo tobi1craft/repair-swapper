@@ -3,7 +3,7 @@ Client-Side Mod which swaps damaged Equipment to your Offhand or Mainhand when y
 
 
 ## ✅ Dependencies
-- MidnightLib
+- None
 
 
 ## ❌ Incompatible
