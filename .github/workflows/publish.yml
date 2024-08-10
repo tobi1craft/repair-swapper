@@ -38,6 +38,7 @@ jobs:
         modrinth-token: ${{env.MODRINTH_TOKEN}}
         modrinth-dependencies: |
           Fabric API(required)
+          MidnightLib(embedded)
         github-tag: v${{env.VERSION}}
         github-token: ${{env.GITHUB_TOKEN}}
         name: ${{env.RELEASE_NAME}}
