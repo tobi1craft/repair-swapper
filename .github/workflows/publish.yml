@@ -43,7 +43,7 @@ jobs:
         github-token: ${{env.GITHUB_TOKEN}}
         name: ${{env.RELEASE_NAME}}
         version: ${{env.VERSION}}
-        version-type: beta
+        version-type: release
         changelog-file: CHANGELOG.md
         loaders: fabric
         game-versions: ${{env.MINECRAFT_VERSION}}
