@@ -1,5 +1,5 @@
 # Repair Swapper
-Client-Side Mod which swaps damaged Equipment to your Offhand or Mainhand when you are collecting XP. Triggered by picking up XP-Orbs or by a Keybind, it prioritizes lower Durabilities of Items to repair everything you have. All of the mod's behaviour is highly customizable so it works for everyone.
+Client-Side Mod which swaps damaged Equipment to your Offhand or Mainhand when you are collecting XP. Triggered by picking up XP-Orbs or by a Keybinding, it prioritizes lower Durability of Items to repair everything you have. All the mod's behaviour is highly customizable, so it works for everyone.
 
 
 ## ✅ Dependencies
@@ -20,4 +20,4 @@ Please add issues to the [issue tracker](https://github.com/tobi1craft/repair-sw
 This mod is Client-Side only. It's made to eliminate the need of swapping Items to the Offhand to repair them.
 
 ### Can I use this mod on Servers?
-You can, but Anticheats might flag you for moving items in your Inventory that's closed.
+You can, but Anti-Cheats might flag you for moving items in your Inventory that's closed.
